@@ -7,6 +7,9 @@ import Studenet from './components/student/Studenet';
 import PlacementOfficer from './components/Placement Officer/PlacementOfficer';
 import Hod from './components/hod/Hod';
 import { ReactNotifications } from 'react-notifications-component';
+import 'react-notifications-component/dist/theme.css';
+
+
 
 
 const AppContent = () => {

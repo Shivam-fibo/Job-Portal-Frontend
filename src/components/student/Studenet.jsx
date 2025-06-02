@@ -40,10 +40,36 @@ const StudentJobBoard = () => {
       ) : (
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {jobs.map((job) => (
-            <div key={job._id} className="bg-white shadow-md rounded-xl p-6 border border-blue-100 hover:shadow-lg transition">
+            <div
+              key={job._id}
+              className="bg-white shadow-md rounded-xl p-6 border border-blue-100 hover:shadow-lg transition"
+            >
               <h2 className="text-xl font-semibold text-blue-800 mb-2">{job.jobTitle}</h2>
-              <p className="text-gray-600">{job.jobDescription}</p>
-              <p className="text-sm text-gray-400 mt-4">Posted on {new Date(job.createdAt).toLocaleDateString()}</p>
+              <p className="text-gray-700 mb-2"><strong>Description:</strong> {job.jobDescription}</p>
+              <p className="text-gray-700 mb-2"><strong>Company:</strong> {job.companyName}</p>
+              <p className="text-gray-700 mb-2"><strong>Location:</strong> {job.companyLocation}</p>
+              <p className="text-gray-700 mb-2"><strong>Employment Type:</strong> {job.employmentType}</p>
+              <p className="text-gray-700 mb-2"><strong>Job Type:</strong> {job.jobType}</p>
+              <p className="text-gray-700 mb-2"><strong>Experience Level:</strong> {job.experienceLevel}</p>
+              <p className="text-gray-700 mb-2"><strong>Duration:</strong> {job.duration} months</p>
+              <p className="text-gray-700 mb-2"><strong>Salary:</strong> ₹{job.salary}</p>
+              <p className="text-gray-700 mb-2">
+                <strong>Skills Required:</strong> {job.skillsRequired && job.skillsRequired.length > 0 ? job.skillsRequired.join(', ') : 'Not specified'}
+              </p>
+              <p className="text-gray-500 text-sm mb-2">
+                Posted on: {new Date(job.createdAt).toLocaleDateString()}
+              </p>
+              <p className="text-gray-500 text-sm mb-4">
+                Application Deadline: {new Date(job.deadline).toLocaleDateString()}
+              </p>
+              <a
+                href={job.applicationLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+              >
+                Apply Now
+              </a>
             </div>
           ))}
         </div>

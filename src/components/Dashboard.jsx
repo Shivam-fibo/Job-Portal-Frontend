@@ -1,35 +1,55 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { AiOutlineLogout, AiOutlineUser } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+  const [studentSkills, setStudentSkills] = useState(localStorage.getItem('studentSkills') || '');
+  const [resumeFile, setResumeFile] = useState(null);
 
-  const getRoleDisplayName = (role) => {
-    switch (role) {
-      case 'student':
-        return 'Student';
-      case 'hod':
-        return 'HOD';
-      case 'placement_officer':
-        return 'Placement Officer';
-      default:
-        return role;
+  const [showForm, setShowForm] = useState(false);
+
+  useEffect(() => {
+    if (user?.role === 'student' && !localStorage.getItem('studentSkills')) {
+      setShowForm(true);
     }
+  }, [user]);
+
+  const handleSkillsChange = (e) => {
+    setStudentSkills(e.target.value);
   };
 
-  const getRoleColor = (role) => {
-    switch (role) {
-      case 'student':
-        return 'bg-blue-100 text-blue-800';
-      case 'hod':
-        return 'bg-green-100 text-green-800';
-      case 'placement_officer':
-        return 'bg-purple-100 text-purple-800';
-      default:
-        return 'bg-gray-100 text-gray-800';
+  const handleResumeUpload = (e) => {
+    setResumeFile(e.target.files[0]);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!studentSkills || !resumeFile) {
+      alert('Please enter skills and upload resume.');
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('skills', studentSkills);
+    formData.append('resume', resumeFile);
+    formData.append('userId', user._id); 
+
+    try {
+      const response = await fetch('http://localhost:5000/api/student/profile', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) throw new Error('Failed to submit profile data');
+
+      localStorage.setItem('studentSkills', studentSkills);
+      setShowForm(false);
+      alert('Profile submitted successfully');
+    } catch (error) {
+      console.error(error);
+      alert('Something went wrong. Please try again.');
     }
   };
 
@@ -50,107 +70,50 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-3">
-              <div className="bg-blue-600 p-2 rounded-lg">
-                <AiOutlineUser className="h-6 w-6 text-white" />
-              </div>
-              <div>
-                <h1 className="text-xl font-semibold text-gray-900">
-                  Dashboard
-                </h1>
-                <p className="text-sm text-gray-500">
-                  Welcome back, {user?.email}
-                </p>
-              </div>
-            </div>
+    <div className='flex flex-col justify-center items-center min-h-screen space-y-6 p-4'>
+      <h1 className='text-2xl font-bold'>Role is: {user?.role}</h1>
 
-            <button
-              onClick={logout}
-              className="cursor-pointer flex items-center space-x-2 bg-red-50 hover:bg-red-100 text-red-700 px-4 py-2 rounded-lg transition-colors"
-            >
-              <AiOutlineLogout className="h-4 w-4" />
-              <span>Logout</span>
-            </button>
+      {user?.role === 'student' && showForm ? (
+        <form onSubmit={handleSubmit} className="w-full max-w-md bg-white p-6 shadow rounded space-y-4">
+          <h2 className="text-lg font-semibold">Complete Your Profile</h2>
+          <div>
+            <label className="block mb-1 font-medium">Skills (comma-separated)</label>
+            <input
+              type="text"
+              value={studentSkills}
+              onChange={handleSkillsChange}
+              className="w-full px-3 py-2 border rounded"
+              placeholder="e.g., React, Node.js"
+              required
+            />
           </div>
-        </div>
-      </header>
-
-      {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="bg-white rounded-2xl shadow-xl p-8">
-          {/* Role Display */}
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-blue-100 rounded-full mb-4">
-              <AiOutlineUser className="h-10 w-10 text-blue-600" />
-            </div>
-
-            <h1 className="text-4xl font-bold text-gray-800 mb-2">
-              {getRoleDisplayName(user?.role)}
-            </h1>
-
-            <div className="flex justify-center mb-4">
-              <span
-                className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${getRoleColor(
-                  user?.role
-                )}`}
-              >
-                {getRoleDisplayName(user?.role)}
-              </span>
-            </div>
-
-            <p className="text-gray-600 mb-6">
-              You are logged in as a{' '}
-              {getRoleDisplayName(user?.role).toLowerCase()}
-            </p>
-
-            {/* Role-based page button */}
-            <button
-              onClick={handleRoleNavigation}
-              className="px-6 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg shadow-md transition"
-            >
-              Go to {getRoleDisplayName(user?.role)} Page
-            </button>
+          <div>
+            <label className="block mb-1 font-medium">Upload Resume (PDF)</label>
+            <input
+              type="file"
+              accept="application/pdf"
+              onChange={handleResumeUpload}
+              className="w-full"
+              required
+            />
           </div>
-
-          {/* User Info Card */}
-          <div className="bg-gray-50 rounded-xl p-6 mb-8">
-            <h2 className="text-lg font-semibold text-gray-800 mb-4">
-              User Information
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-500 mb-1">
-                  Email Address
-                </label>
-                <p className="text-gray-900 font-medium">{user?.email}</p>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-500 mb-1">
-                  Role
-                </label>
-                <p className="text-gray-900 font-medium">
-                  {getRoleDisplayName(user?.role)}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Role-specific content placeholder */}
-          <div className="bg-blue-50 rounded-xl p-6">
-            <h2 className="text-lg font-semibold text-blue-800 mb-3">
-              {getRoleDisplayName(user?.role)} Features
-            </h2>
-            <p className="text-blue-700">
-              This is where {getRoleDisplayName(user?.role).toLowerCase()}-specific features and content would be displayed. The system successfully recognizes your role and can provide appropriate access controls and functionality.
-            </p>
-          </div>
-        </div>
-      </main>
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
+          >
+            Submit Profile
+          </button>
+        </form>
+      ) : (
+        <>
+          <button
+            onClick={handleRoleNavigation}
+            className="px-6 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg shadow-md transition"
+          >
+            Go to {user?.role} Page
+          </button>
+        </>
+      )}
     </div>
   );
 };

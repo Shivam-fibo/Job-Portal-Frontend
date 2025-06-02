@@ -7,8 +7,8 @@ export const showSuccessNotification = (message) => {
     type: 'success',
     insert: 'top',
     container: 'top-right',
-    animationIn: ['animate__animated', 'animate__fadeIn'],
-    animationOut: ['animate__animated', 'animate__fadeOut'],
+    // animationIn: ['animate__animated', 'animate__fadeIn'],
+    // animationOut: ['animate__animated', 'animate__fadeOut'],
     dismiss: {
       duration: 3000,
       onScreen: true
@@ -23,8 +23,8 @@ export const showErrorNotification = (message) => {
     type: 'danger',
     insert: 'top',
     container: 'top-right',
-    animationIn: ['animate__animated', 'animate__fadeIn'],
-    animationOut: ['animate__animated', 'animate__fadeOut'],
+    // animationIn: ['animate__animated', 'animate__fadeIn'],
+    // animationOut: ['animate__animated', 'animate__fadeOut'],
     dismiss: {
       duration: 4000,
       onScreen: true
@@ -39,8 +39,8 @@ export const showWarningNotification = (message) => {
     type: 'warning',
     insert: 'top',
     container: 'top-right',
-    animationIn: ['animate__animated', 'animate__fadeIn'],
-    animationOut: ['animate__animated', 'animate__fadeOut'],
+    // animationIn: ['animate__animated', 'animate__fadeIn'],
+    // animationOut: ['animate__animated', 'animate__fadeOut'],
     dismiss: {
       duration: 3500,
       onScreen: true
