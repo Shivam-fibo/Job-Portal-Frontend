@@ -32,9 +32,14 @@ const Dashboard = () => {
     }
 
     const formData = new FormData();
+    if (!user?.id) {
+  alert('User not loaded yet. Please wait.');
+  return;
+}
+
     formData.append('skills', studentSkills);
     formData.append('resume', resumeFile);
-    formData.append('userId', user._id); 
+    formData.append('userId', user?.id); 
 
     try {
       const response = await fetch('http://localhost:5000/api/student/profile', {
