@@ -1,9 +1,11 @@
 import React from 'react';
 import { useAuth } from '../context/AuthContext';
 import { AiOutlineLogout, AiOutlineUser } from 'react-icons/ai';
+import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
   const { user, logout } = useAuth();
+  const navigate = useNavigate();
 
   const getRoleDisplayName = (role) => {
     switch (role) {
@@ -31,6 +33,22 @@ const Dashboard = () => {
     }
   };
 
+  const handleRoleNavigation = () => {
+    switch (user?.role) {
+      case 'student':
+        navigate('/student');
+        break;
+      case 'hod':
+        navigate('/hod');
+        break;
+      case 'placement_officer':
+        navigate('/placement');
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       {/* Header */}
@@ -50,7 +68,7 @@ const Dashboard = () => {
                 </p>
               </div>
             </div>
-            
+
             <button
               onClick={logout}
               className="cursor-pointer flex items-center space-x-2 bg-red-50 hover:bg-red-100 text-red-700 px-4 py-2 rounded-lg transition-colors"
@@ -70,23 +88,36 @@ const Dashboard = () => {
             <div className="inline-flex items-center justify-center w-20 h-20 bg-blue-100 rounded-full mb-4">
               <AiOutlineUser className="h-10 w-10 text-blue-600" />
             </div>
-            
+
             <h1 className="text-4xl font-bold text-gray-800 mb-2">
               {getRoleDisplayName(user?.role)}
             </h1>
-            
+
             <div className="flex justify-center mb-4">
-              <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${getRoleColor(user?.role)}`}>
+              <span
+                className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${getRoleColor(
+                  user?.role
+                )}`}
+              >
                 {getRoleDisplayName(user?.role)}
               </span>
             </div>
-            
+
             <p className="text-gray-600 mb-6">
-              You are logged in as a {getRoleDisplayName(user?.role).toLowerCase()}
+              You are logged in as a{' '}
+              {getRoleDisplayName(user?.role).toLowerCase()}
             </p>
+
+            {/* Role-based page button */}
+            <button
+              onClick={handleRoleNavigation}
+              className="px-6 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg shadow-md transition"
+            >
+              Go to {getRoleDisplayName(user?.role)} Page
+            </button>
           </div>
 
-          {/* User Information Card */}
+          {/* User Info Card */}
           <div className="bg-gray-50 rounded-xl p-6 mb-8">
             <h2 className="text-lg font-semibold text-gray-800 mb-4">
               User Information
@@ -115,8 +146,7 @@ const Dashboard = () => {
               {getRoleDisplayName(user?.role)} Features
             </h2>
             <p className="text-blue-700">
-              This is where {getRoleDisplayName(user?.role).toLowerCase()}-specific features and content would be displayed.
-              The system successfully recognizes your role and can provide appropriate access controls and functionality.
+              This is where {getRoleDisplayName(user?.role).toLowerCase()}-specific features and content would be displayed. The system successfully recognizes your role and can provide appropriate access controls and functionality.
             </p>
           </div>
         </div>

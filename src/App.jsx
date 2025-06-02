@@ -1,7 +1,13 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import AuthPage from './components/AuthPage';
 import Dashboard from './components/Dashboard';
+import Studenet from './components/student/Studenet';
+import PlacementOfficer from './components/Placement Officer/PlacementOfficer';
+import Hod from './components/hod/Hod';
+import { ReactNotifications } from 'react-notifications-component';
+
 
 const AppContent = () => {
   const { user, loading } = useAuth();
@@ -17,15 +23,31 @@ const AppContent = () => {
     );
   }
 
-  return user ? <Dashboard /> : <AuthPage />;
+  return (
+    <Routes>
+         
+      {!user ? (
+        <Route path="*" element={<AuthPage />} />
+      ) : (
+        <>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/student" element={<Studenet />} />
+          <Route path="/hod" element={<Hod />} />
+          <Route path="/placement" element={<PlacementOfficer />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </>
+      )}
+    </Routes>
+  );
 };
 
 function App() {
   return (
     <AuthProvider>
-      <div className="App">
+      <Router>
+        <ReactNotifications />
         <AppContent />
-      </div>
+      </Router>
     </AuthProvider>
   );
 }
