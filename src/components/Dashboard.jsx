@@ -23,41 +23,51 @@ const Dashboard = () => {
   const handleResumeUpload = (e) => {
     setResumeFile(e.target.files[0]);
   };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  
+  // Check user first
+  if (!user?.id) {
+    alert('User not loaded yet. Please wait.');
+    return;
+  }
+  
+  if (!studentSkills || !resumeFile) {
+    alert('Please enter skills and upload resume.');
+    return;
+  }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!studentSkills || !resumeFile) {
-      alert('Please enter skills and upload resume.');
-      return;
+  // Validate file type
+  if (resumeFile.type !== 'application/pdf') {
+    alert('Please upload a PDF file only.');
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append('skills', studentSkills);
+  formData.append('userId', user.id);
+  formData.append('resume', resumeFile);
+
+  try {
+    const response = await fetch('http://localhost:5000/api/student/profile', {
+      method: 'POST',
+      body: formData,
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || 'Failed to submit profile data');
     }
 
-    const formData = new FormData();
-    if (!user?.id) {
-  alert('User not loaded yet. Please wait.');
-  return;
-}
-
-    formData.append('skills', studentSkills);
-    formData.append('resume', resumeFile);
-    formData.append('userId', user?.id); 
-
-    try {
-      const response = await fetch('http://localhost:5000/api/student/profile', {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (!response.ok) throw new Error('Failed to submit profile data');
-
-      localStorage.setItem('studentSkills', studentSkills);
-      setShowForm(false);
-      alert('Profile submitted successfully');
-    } catch (error) {
-      console.error(error);
-      alert('Something went wrong. Please try again.');
-    }
-  };
-
+    const result = await response.json();
+    localStorage.setItem('studentSkills', studentSkills);
+    setShowForm(false);
+    alert('Profile submitted successfully');
+  } catch (error) {
+    console.error('Submit error:', error);
+    alert(`Error: ${error.message}`);
+  }
+};
   const handleRoleNavigation = () => {
     switch (user?.role) {
       case 'student':

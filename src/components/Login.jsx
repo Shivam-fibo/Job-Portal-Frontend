@@ -2,6 +2,7 @@
 import { useAuth } from '../context/AuthContext';
 import { AiOutlineEye, AiOutlineEyeInvisible, AiOutlineMail, AiOutlineLock } from 'react-icons/ai';
 import ForgotPasswordModal from './ForgotPasswordModel';
+import { useNavigate } from 'react-router-dom';
 
 const Login = ({ onToggleMode }) => {
   const [formData, setFormData] = useState({
@@ -15,6 +16,7 @@ const Login = ({ onToggleMode }) => {
   const [showForgotModal, setShowForgotModal] = useState(false);
 
   const { login } = useAuth();
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     setFormData({
@@ -42,6 +44,7 @@ const Login = ({ onToggleMode }) => {
 
       if (response.ok) {
         login(data.token, data.user);
+        navigate('/dashboard')
       } else {
         setError(data.message || 'Login failed');
       }
