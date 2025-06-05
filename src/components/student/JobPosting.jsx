@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import getSimilarityScore from '../../util/getSimilarityScore';
 
 const StudentJobBoard = () => {
   const [jobs, setJobs] = useState([]);
@@ -19,6 +20,28 @@ const StudentJobBoard = () => {
 
     fetchJobs();
   }, []);
+
+  const handleApplyClick = async (job) => {
+    const studentSkills = localStorage.getItem('studentSkills') || '';
+    const jobText = `${(job.skillsRequired || []).join(', ')}`;
+    let score = await getSimilarityScore(studentSkills, jobText);
+
+    if (score !== null) {
+      let atsScore = (score * 1000).toFixed(2)
+      if(atsScore > 100)
+          atsScore = 100;
+      else if(atsScore < 100){
+          atsScore = 0;
+      }
+      else if (atsScore == NaN){
+        atsScore = 0;
+      }
+      alert(`📊 ATS Match Score: ${atsScore}%`);
+      window.open(job.applicationLink, '_blank');
+    } else {
+      alert('Failed to compute similarity score.');
+    }
+  };
 
   if (loading) {
     return (
@@ -62,14 +85,13 @@ const StudentJobBoard = () => {
               <p className="text-gray-500 text-sm mb-4">
                 Application Deadline: {new Date(job.deadline).toLocaleDateString()}
               </p>
-              <a
-                href={job.applicationLink}
-                target="_blank"
-                rel="noopener noreferrer"
+
+              <button
+                onClick={() => handleApplyClick(job)}
                 className="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
               >
                 Apply Now
-              </a>
+              </button>
             </div>
           ))}
         </div>

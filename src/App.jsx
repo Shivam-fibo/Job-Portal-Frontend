@@ -3,12 +3,13 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { AuthProvider, useAuth } from './context/AuthContext';
 import AuthPage from './components/AuthPage';
 import Dashboard from './components/Dashboard';
-import Studenet from './components/student/Studenet';
+import Studenet from './components/student/JobPosting';
 import PlacementOfficer from './components/Placement Officer/PlacementOfficer';
 import Hod from './components/hod/Hod';
+import StudentProfileForm from './components/student/StudentProfileForm';
 import { ReactNotifications } from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
-
+import StudentLandingPage from './components/student/StudentLandingPage';
 
 
 
@@ -34,10 +35,13 @@ const AppContent = () => {
       ) : (
         <>
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/student" element={<Studenet />} />
+          <Route path="/student" element={<StudentLandingPage />} />
+          <Route path="/jobs/opening" element={<Studenet />} />
+
           <Route path="/hod" element={<Hod />} />
           <Route path="/placement" element={<PlacementOfficer />} />
-          <Route path="*" element={<Navigate to="/" />} />
+          <Route path="/student/profile" element={<StudentProfileForm />} />
+          <Route path="*" element={<AuthPage />}/>
         </>
       )}
     </Routes>
