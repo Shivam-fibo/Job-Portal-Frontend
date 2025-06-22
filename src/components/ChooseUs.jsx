@@ -46,7 +46,7 @@ const ChooseUs = () => {
         <div className="relative z-10">
           <div className=" text-center">
        <h1 className="text-4xl font-bold tracking-wide  text-white ">
-            ISL PLACEMENT CELL
+            PLACEMENT CELL
           </h1>
         </div>
         </div>
@@ -103,7 +103,7 @@ const ChooseUs = () => {
               </h3>
             </div>
             <p className="text-xl leading-relaxed font-medium" style={{ color: colors.text }}>
-              <span className="font-bold" style={{ color: colors.accent }}>ISL PLACEMENT CELL</span> transforms this experience with a smart, AI-driven platform that keeps everyone connected and informed. Our system offers personalized job recommendations powered by AI, giving students a clear pathway to opportunities that align with their skills and career goals.
+              <span className="font-bold" style={{ color: colors.accent }}>PLACEMENT CELL</span> transforms this experience with a smart, AI-driven platform that keeps everyone connected and informed. Our system offers personalized job recommendations powered by AI, giving students a clear pathway to opportunities that align with their skills and career goals.
             </p>
           </div>
 
@@ -175,7 +175,7 @@ const ChooseUs = () => {
                 </h3>
               </div>
               <p className="text-xl leading-relaxed font-medium" style={{ color: colors.text }}>
-                In short, <span className="font-bold" style={{ color: colors.accent }}>ISL PLACEMENT CELL</span> empowers your campus with a modern, collaborative, and intelligent placement ecosystem — helping students land the right jobs faster and smarter.
+                In short, <span className="font-bold" style={{ color: colors.accent }}>PLACEMENT CELL</span> empowers your campus with a modern, collaborative, and intelligent placement ecosystem — helping students land the right jobs faster and smarter.
               </p>
             </div>
           </div>
@@ -189,7 +189,7 @@ const ChooseUs = () => {
       >
         <div className="max-w-4xl mx-auto">
           <p className="font-medium" style={{ color: colors.text }}>
-            © {new Date().getFullYear()} ISL PLACEMENT CELL. All rights reserved.
+            © {new Date().getFullYear()} PLACEMENT CELL. All rights reserved.
           </p>
           <div className="mt-2 flex justify-center">
             <div className="w-16 h-0.5 rounded-full" style={{ backgroundColor: colors.accent }}></div>

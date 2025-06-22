@@ -13,7 +13,7 @@ const StudentLandingPage = () => {
   const [loading, setLoading] = useState(true);
   const [studentProfile, setStudentProfile] = useState(null);
 
-  useEffect(() => {
+ 
     const checkStudentProfile = async () => {
       if (!user?.id) return;
       
@@ -34,8 +34,13 @@ const StudentLandingPage = () => {
       }
     };
 
-    checkStudentProfile();
-  }, [user?.id]);
+
+     useEffect(() => {
+       checkStudentProfile();
+
+        }, [user?.id]);
+
+
 
   // Redirect if profile is not created
   useEffect(() => {
@@ -95,6 +100,7 @@ const StudentLandingPage = () => {
       );
       const result = await res.json();
       console.log('Status updated:', result);
+      await checkStudentProfile();
     } catch (err) {
       console.error('Failed to update status:', err);
     }
@@ -109,8 +115,8 @@ const StudentLandingPage = () => {
       ) : (
         <div className="w-full mb-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <h1 className="text-4xl font-extrabold text-gray-800 mb-4 md:mb-0">
-              🚀 Clicked Jobs
+            <h1 className="text-4xl font-extrabold my-4 text-gray-800 mb-4 md:mb-0">
+              Clicked Jobs
             </h1>
             <div className="space-x-4">
               <button

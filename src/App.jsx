@@ -18,7 +18,7 @@ import HomePage from './components/HomePage';
 import Header from './components/Header';
 import StudentProfiles from './components/StudentList';
 import ViewAnnouncements from './components/ViewAnnouncements';
-import CreateAnnouncement from './components/AddAnoucement';
+import CreateAnnouncement from './components/hod/AddAnoucement';
 import HodOfficerJob from './components/hod/HofOfficerJob';
 import {Toaster} from 'react-hot-toast'
 

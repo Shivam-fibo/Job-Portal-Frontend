@@ -364,44 +364,7 @@ const roleConfigs = {
       </div>
 
       {/* Footer */}
-      <footer className={`w-full ${currentRole.cardGradient} py-8 border-t border-white/50`}>
-        <h2 className="text-center text-lg font-semibold text-gray-800 mb-6">
-          Website Developers
-        </h2>
-        <div className="flex flex-col md:flex-row justify-center gap-10 px-4">
-          {[
-            {
-              name: "SYED FAWAZ AHMED",
-              id: "160521737049",
-              email: "syedfawaz2209@gmail.com",
-              img: "/images/fwaz.jpg"
-            },
-            {
-              name: "MOHD MUQEETH KHAN",
-              id: "160521737040",
-              email: "muqeethkhan778@gmail.com",
-              img: "/images/muqteen.jpg"
-            },
-            {
-              name: "MOHD KASHIF",
-              id: "160521737018",
-              email: "mohdkashif74815@gmail.com",
-              img: "/images/kasif.jpg"
-            }
-          ].map((dev, i) => (
-            <div key={i} className="flex flex-col items-center text-center">
-              <img
-                src={dev.img}
-                alt={dev.name}
-                className="w-24 h-24 rounded-full object-cover mb-2 border-2 border-white shadow-md"
-              />
-              <p className="font-bold text-gray-800">{dev.name}</p>
-              <p className="text-sm text-gray-700">{dev.id}</p>
-              <p className="text-sm text-gray-700">{dev.email}</p>
-            </div>
-          ))}
-        </div>
-      </footer>
+      
     </div>
   );
 };

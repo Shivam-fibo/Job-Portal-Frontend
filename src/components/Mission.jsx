@@ -45,7 +45,7 @@ const Mission = () => {
         </div>
         <div className=" text-center">
          <h1 className="text-4xl font-bold tracking-wide  text-white ">
-            ISL PLACEMENT CELL
+            PLACEMENT CELL
           </h1>
         </div>
       </header>
@@ -74,7 +74,7 @@ const Mission = () => {
           {/* Mission Statement */}
           <div className="bg-white/30 backdrop-blur-sm rounded-2xl p-10 shadow-lg border border-white/20 mb-10">
             <p className="text-xl leading-relaxed text-center font-medium" style={{ color: colors.text }}>
-              At ISL PLACEMENT CELL, our mission is to empower students with smart, AI-driven tools that make career discovery and job placement seamless and personalized.
+              At PLACEMENT CELL, our mission is to empower students with smart, AI-driven tools that make career discovery and job placement seamless and personalized.
             </p>
           </div>
 
@@ -152,7 +152,7 @@ const Mission = () => {
       >
         <div className="max-w-4xl mx-auto">
           <p className="font-medium" style={{ color: colors.text }}>
-            © {new Date().getFullYear()} ISL PLACEMENT CELL. All rights reserved.
+            © {new Date().getFullYear()} PLACEMENT CELL. All rights reserved.
           </p>
           <div className="mt-2 flex justify-center">
             <div className="w-16 h-0.5 rounded-full" style={{ backgroundColor: colors.accent }}></div>

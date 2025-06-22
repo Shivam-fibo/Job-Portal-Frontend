@@ -66,7 +66,7 @@ const Header = () => {
       style={{ backgroundColor: roleConfig.colors.top }}
     >
       {/* <h1 className="text-xl font-semibold text-black">Dashboard</h1> */}
-      <img src="/images/collge_logo.jpg" alt="logo company" height={"100px"} width={"100px"} className="mx-4 rounded-2xl"  
+      <img src="/images/logo.png" alt="logo company" height={"100px"} width={"100px"} className="mx-4 rounded-2xl"  
       onClick={() => handleLogoButton()}
       />
       <div className="flex gap-2">
