@@ -79,7 +79,7 @@ const AppContent = () => {
         <Route path="/addAnnoucment" element={<CreateAnnouncement/>}/>
         <Route path="*" element={<Navigate to="/dashboard" replace />} />
       </Routes>
-          {/* <NotificationContainer /> */}
+
     </>
   );
 };

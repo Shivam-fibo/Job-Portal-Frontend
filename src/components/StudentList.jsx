@@ -48,7 +48,9 @@ const StudentProfiles = () => {
   useEffect(() => {
     const fetchStudents = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/application/getAllStudentProfile');
+        const response = await fetch('http://localhost:5000/api/application/getAllStudentProfile', {
+          credentials: 'include',
+        });
         if (!response.ok) throw new Error('Failed to fetch student profiles');
         const data = await response.json();
         setStudents(data);

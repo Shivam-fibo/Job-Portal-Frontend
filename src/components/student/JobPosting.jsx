@@ -32,7 +32,9 @@ const StudentJobBoard = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/job/getAllJob');
+        const response = await fetch('http://localhost:5000/api/job/getAllJob', {
+          credentials: 'include',
+        });
         const data = await response.json();
         console.log(data)
         setJobs(data);
@@ -90,7 +92,8 @@ const StudentJobBoard = () => {
         body: JSON.stringify({ jobId: job._id, studentId: user?.id }),
         headers: {
           "Content-type": "application/json"
-        }
+        },
+        credentials: 'include',
       });
       await applyToJob.json();
 

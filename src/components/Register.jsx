@@ -46,8 +46,8 @@ const handleSubmit = async (e) => {
     return;
   }
 
-  if (formData.role === 'student' && !formData.email.endsWith('@islec.edu.in')) {
-    setError('Student email must end with @islec.edu.in');
+  if (formData.role === 'student' && !formData.email.endsWith('@edu.in')) {
+    setError('Student email must end with @edu.in');
     setLoading(false);
     return;
   }
@@ -56,6 +56,7 @@ const handleSubmit = async (e) => {
     const res = await fetch('http://localhost:5000/api/auth/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
+       credentials: 'include',
       body: JSON.stringify({
         email: formData.email,
         password: formData.password,
@@ -84,12 +85,13 @@ const handleVerifyOTP = async () => {
     const res = await fetch('http://localhost:5000/api/auth/verify-otp', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
+       credentials: 'include',
       body: JSON.stringify({ email: formData.email, otp }),
     });
 
     const data = await res.json();
     if (res.ok) {
-      login(data.token, data.user); // log in user
+      login( data.user); 
       navigate('/dashboard');
     } else {
       setError(data.message || 'Invalid OTP');
@@ -198,7 +200,7 @@ const handleVerifyOTP = async () => {
                   </span>
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-2">Create Account</h2>
-                <p className="text-gray-600">Log in for a new account</p>
+                <p className="text-gray-600">Sign up for a new account</p>
               </div>
 
               <form onSubmit={handleSubmit}>
@@ -358,7 +360,7 @@ const handleVerifyOTP = async () => {
               {formData.role === 'student' && (
                 <div className="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-xl">
                   <p className="text-sm text-blue-700">
-                    <strong>Note:</strong> Student email must end with @islec.edu.in
+                    <strong>Note:</strong> Student email must end with @edu.in
                   </p>
                 </div>
               )}

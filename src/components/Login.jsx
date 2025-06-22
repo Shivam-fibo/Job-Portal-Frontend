@@ -97,13 +97,14 @@ const Login = ({ onToggleMode }) => {
         headers: {
           'Content-Type': 'application/json',
         },
+        credentials: "include",
         body: JSON.stringify(formData),
       });
 
       const data = await response.json();
 
       if (response.ok) {
-        login(data.token, data.user);
+        login(data.user);
         navigate('/dashboard');
       } else {
         setError(data.message || 'Login failed');

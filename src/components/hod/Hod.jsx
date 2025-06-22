@@ -28,7 +28,9 @@ const Hod = () => {
   useEffect(() => {
     const fetchApplications = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/application/jobApplied')
+        const res = await fetch('http://localhost:5000/api/application/jobApplied', {
+          credentials: 'include',
+        })
         const data = await res.json()
         setApplications(data)
         setIsLoading(false)

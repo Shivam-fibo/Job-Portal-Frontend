@@ -19,8 +19,9 @@ const StudentLandingPage = () => {
       
       try {
         const response = await fetch(
-          `http://localhost:5000/api/student/profile/${user.id}`
-        );
+          `http://localhost:5000/api/student/profile/${user.id}`, {
+            credentials: 'include',
+          });
         const data = await response.json();
         setHasProfile(data.exists);
         if (data.exists) {
@@ -56,8 +57,9 @@ const StudentLandingPage = () => {
       
       try {
         const response = await fetch(
-          `http://localhost:5000/api/application/status/${user.id}`
-        );
+          `http://localhost:5000/api/application/status/${user.id}`, {
+            credentials: 'include',
+          });
         const data = await response.json();
         setJobs(data.jobs || []);
       } catch (error) {
@@ -90,6 +92,7 @@ const StudentLandingPage = () => {
         'http://localhost:5000/api/application/update-status',
         {
           method: 'POST',
+           credentials: 'include',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             jobId,

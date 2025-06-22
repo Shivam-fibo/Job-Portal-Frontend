@@ -11,6 +11,7 @@ const CreateAnnouncement = () => {
     try {
       const res = await fetch('http://localhost:5000/api/application/annoucment', {
         method: 'POST',
+         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title, description }),
       });
