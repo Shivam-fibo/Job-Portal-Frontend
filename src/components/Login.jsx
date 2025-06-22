@@ -261,7 +261,7 @@ const Login = ({ onToggleMode }) => {
                     onClick={onToggleMode}
                     className="font-semibold underline"
                   >
-                    Sign up
+                    Log in
                   </button>
                 </p>
               </div>

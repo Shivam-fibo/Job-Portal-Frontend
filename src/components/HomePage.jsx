@@ -62,26 +62,25 @@ const JobPortalLanding = () => {
   }
 
   return (
-    <div className="min-h-screen ">
+    <div className="min-h-screen bg-gray-100 ">
       {/* Navigation */}
-      <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <div className="flex items-center space-x-2">
-          {/* <div className="w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-xl">JP</div> */}
-          <span className="text-xl font-bold text-gray-800 ">
-            <img src="/images/collge_logo.jpg" alt="logo" height={"100px"} width={"100px"} className='rounded-xl'  />
+      <nav className="container mx-auto  px-6 py-4  flex justify-between items-center">
+        <div className="flex items-center  space-x-2">
+        
+          <span className="text-xl font-bold  ">
+            <img src="/images/logo.png" alt="logo" height={"100px"} width={"100px"} className='rounded-xl'  />
           </span>
         </div>
         <div className="hidden md:flex space-x-8">
           <a href="#features" className="text-gray-600 hover:text-blue-600 transition">Features</a>
           <a href="#how-it-works" className="text-gray-600 hover:text-blue-600 transition">How It Works</a>
-          <a href="#developers" className="text-gray-600 hover:text-blue-600 transition">Developers</a>
         </div>
         <div className="flex space-x-4">
           <button 
             className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium rounded-lg hover:shadow-lg transition transform hover:scale-105"
             onClick={handleSignUpClick}
           >
-            Sign Up
+            Log in
           </button>
         </div>
       </nav>
@@ -100,7 +99,7 @@ const JobPortalLanding = () => {
               <button className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium rounded-lg hover:shadow-lg transition transform hover:scale-105 flex items-center justify-center"
                 onClick={handleGetStarted}
               >
-                Get Started <ArrowRight className="ml-2" size={18} />
+                Get Started <ArrowRight className="ml-2" size={18}   />
               </button>
               <button className="px-6 py-3 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition flex items-center justify-center">
                 Browse Jobs <Search className="ml-2" size={18} />
@@ -452,51 +451,14 @@ const JobPortalLanding = () => {
             <button className="px-8 py-3 bg-white text-blue-600 font-bold rounded-lg hover:bg-gray-100 transition transform hover:scale-105"
              onClick={handleSignUpClick}
             >
-              Sign Up Free
+              Log in Free
             </button>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer id='developers' className="w-full bg-gray-200  py-8 border-t border-white/50">
-        <h2 className="text-center text-lg font-semibold text-gray-800 mb-6">
-          Website Developers
-        </h2>
-        <div className="flex flex-col md:flex-row justify-center gap-10 px-4">
-          {[
-            {
-              name: "SYED FAWAZ AHMED",
-              id: "160521737049",
-              email: "syedfawaz2209@gmail.com",
-              img: "/images/fwaz.jpg"
-            },
-            {
-              name: "MOHD MUQEETH KHAN",
-              id: "160521737040",
-              email: "muqeethkhan778@gmail.com",
-              img: "/images/muqteen.jpg"
-            },
-            {
-              name: "MOHD KASHIF",
-              id: "160521737018",
-              email: "mohdkashif74815@gmail.com",
-              img: "/images/kasif.jpg"
-            }
-          ].map((dev, i) => (
-            <div key={i} className="flex flex-col items-center text-center">
-              <img
-                src={dev.img}
-                alt={dev.name}
-                className="w-24 h-24 rounded-full object-cover mb-2 border-2 border-white shadow-md"
-              />
-              <p className="font-bold text-gray-800">{dev.name}</p>
-              <p className="text-sm text-gray-700">{dev.id}</p>
-              <p className="text-sm text-gray-700">{dev.email}</p>
-            </div>
-          ))}
-        </div>
-      </footer>
+
+      
     </div>
   );
 };

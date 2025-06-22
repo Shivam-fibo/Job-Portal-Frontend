@@ -39,7 +39,7 @@ const AboutUs = () => {
       >
         <div className=" text-center">
           <h1 className="text-4xl font-bold tracking-wide  text-white ">
-            ISL PLACEMENT CELL
+            PLACEMENT CELL
           </h1>
         </div>
         {/* Subtle background pattern */}
@@ -70,7 +70,7 @@ const AboutUs = () => {
                 className="text-lg leading-relaxed"
                 style={{ color: colors.text }}
               >
-                Welcome to <span className="font-bold text-xl" style={{ color: colors.accent }}>ISL PLACEMENT CELL</span>, a next-generation Campus Placement Management platform designed to bridge the gap between students and their dream careers. What sets us apart? We harness the power of AI-driven job matching to deliver personalized job recommendations tailored to each student's unique skill set.
+                Welcome to <span className="font-bold text-xl" style={{ color: colors.accent }}>PLACEMENT CELL</span>, a next-generation Campus Placement Management platform designed to bridge the gap between students and their dream careers. What sets us apart? We harness the power of AI-driven job matching to deliver personalized job recommendations tailored to each student's unique skill set.
               </p>
             </div>
             
@@ -109,7 +109,7 @@ const AboutUs = () => {
                   className="text-lg leading-relaxed font-medium"
                   style={{ color: colors.text }}
                 >
-                  At <span className="font-bold" style={{ color: colors.accent }}>ISL PLACEMENT CELL</span>, we don't just manage placements — we create smart, data-driven career pathways that unlock opportunities and simplify hiring for both students and companies.
+                  At <span className="font-bold" style={{ color: colors.accent }}>PLACEMENT CELL</span>, we don't just manage placements — we create smart, data-driven career pathways that unlock opportunities and simplify hiring for both students and companies.
                 </p>
               </div>
               {/* Decorative element */}
@@ -129,7 +129,7 @@ const AboutUs = () => {
         <div className="relative z-10 text-center max-w-4xl mx-auto">
           <div className="mb-2 h-px w-24 mx-auto" style={{ backgroundColor: colors.accent, opacity: 0.3 }}></div>
           <p className="font-medium" style={{ color: colors.text }}>
-            © {new Date().getFullYear()} ISL PLACEMENT CELL. All rights reserved.
+            © {new Date().getFullYear()} PLACEMENT CELL. All rights reserved.
           </p>
         </div>
         {/* Subtle background element */}

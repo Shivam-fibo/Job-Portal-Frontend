@@ -46,7 +46,7 @@ const Vision = () => {
         <div className="relative z-10">
           <div className=" text-center">
            <h1 className="text-4xl font-bold tracking-wide  text-white ">
-            ISL PLACEMENT CELL
+            PLACEMENT CELL
           </h1>
         </div>
         </div>
@@ -138,7 +138,7 @@ const Vision = () => {
       >
         <div className="max-w-4xl mx-auto">
           <p className="font-medium" style={{ color: colors.text }}>
-            © {new Date().getFullYear()} ISL PLACEMENT CELL. All rights reserved.
+            © {new Date().getFullYear()} PLACEMENT CELL. All rights reserved.
           </p>
           <div className="mt-2 flex justify-center">
             <div className="w-16 h-0.5 rounded-full" style={{ backgroundColor: colors.accent }}></div>

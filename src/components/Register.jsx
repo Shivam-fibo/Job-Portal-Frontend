@@ -115,9 +115,9 @@ const handleVerifyOTP = async () => {
         "Skill assessment tools"
       ],
       colors: {
-        top: "#C8D9E6",
-        middle: "#F5EFEB",
-        bottom: "#C8D9E6"
+        top: "#3B82F6",
+        middle: "#fffaff",
+        bottom: "#8e8f8d"
       }
     },
     hod: {
@@ -131,9 +131,9 @@ const handleVerifyOTP = async () => {
         "Industry partnership management"
       ],
       colors: {
-        top: "#87785F",
-        middle: "#F7E7CE",
-        bottom: "#FFF6E8"
+        top: "#311C5A",
+        middle: "#f7f8fa",
+        bottom: "#FEFFFE"
       }
     },
     placement_officer: {
@@ -198,7 +198,7 @@ const handleVerifyOTP = async () => {
                   </span>
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-2">Create Account</h2>
-                <p className="text-gray-600">Sign up for a new account</p>
+                <p className="text-gray-600">Log in for a new account</p>
               </div>
 
               <form onSubmit={handleSubmit}>
