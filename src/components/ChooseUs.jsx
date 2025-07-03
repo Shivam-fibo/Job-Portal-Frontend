@@ -2,26 +2,26 @@ import React from 'react';
 import { useAuth } from "../context/AuthContext";
 
 const roleColors = {
-   student: {
-    header: '#FFFFFF',
-    content: '#FFFFFF',
-    footer: '#FFFFFF',
-    text: '#1F2937',    
-    accent: '#D1D5DB'   
-  },
- hod: {
-     header: '#FFFFFF',
-    content: '#FFFFFF',
-    footer: '#FFFFFF',
+  student: {
+    header: '#3B82F6',
+    content: '#EFF6FF',
+    footer: '#1E40AF',
     text: '#1F2937',
-    accent: '#D1D5DB'
+    accent: '#93C5FD'
+  },
+  hod: {
+    header: '#10B981',
+    content: '#ECFDF5',
+    footer: '#047857',
+    text: '#064E3B',
+    accent: '#6EE7B7'
   },
   placement_officer: {
-     header: '#FFFFFF',
-    content: '#FFFFFF',
-    footer: '#FFFFFF',
+    header: '#7C3AED',
+    content: '#F5F3FF',
+    footer: '#5B21B6',
     text: '#1F2937',
-    accent: '#D1D5DB'
+    accent: '#C4B5FD'
   }
 };
 

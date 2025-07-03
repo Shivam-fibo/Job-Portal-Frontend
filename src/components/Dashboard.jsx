@@ -60,113 +60,115 @@ const Dashboard = () => {
   const handleContactUs = () => navigate('/contactus');
   const handleOurMission = () => navigate('/ourmission');
   const handleOurVision = () => navigate('/ourvision');
-  const handleWhyChooseUs = () => navigate('/whychooseus');const roleConfigs = {
-  student: {
-    title: "Launch Your Career Journey",
-    subtitle: "Access 7000+ Premium Opportunities",
-    description:
-      "Connect with top companies, build your profile, and kickstart your professional journey with personalized job recommendations.",
-    buttonText: "Explore Opportunities",
-    gradient: "bg-white",
-    bgGradient: "bg-white",
-    cardGradient: "bg-white",
-    image:
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=300&fit=crop",
-    stats: [
-      { number: "1,75,324", label: "Active Job Listings", icon: Briefcase },
-      { number: "97,354", label: "Partner Companies", icon: Building2 },
-      { number: "38,47,154", label: "Student Profiles", icon: Users },
-      { number: "7,532", label: "Monthly Placements", icon: TrendingUp }
-    ],
-    features: [
-      {
-        icon: Target,
-        title: "Personalized Matching",
-        desc: "AI-powered job recommendations based on your skills and interests"
-      },
-      {
-        icon: Award,
-        title: "Skill Assessment",
-        desc: "Comprehensive evaluation tools to showcase your abilities"
-      },
-      {
-        icon: Calendar,
-        title: "Interview Scheduling",
-        desc: "Seamless coordination with recruiters and companies"
-      }
-    ]
-  },
-  hod: {
-    title: "Department Excellence Dashboard",
-    subtitle: "Streamline Academic & Placement Operations",
-    description:
-      "Manage student progress, track placement statistics, and coordinate with industry partners for optimal outcomes.",
-    buttonText: "Access Dashboard",
-    gradient: "bg-white",
-    bgGradient: "bg-white",
-    cardGradient: "bg-white",
-    image:
-      "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=300&fit=crop",
-    stats: [
-      { number: "89%", label: "Department Placement Rate", icon: TrendingUp },
-      { number: "1,240", label: "Students Managed", icon: Users },
-      { number: "156", label: "Industry Partners", icon: Building2 },
-      { number: "45", label: "Active Programs", icon: FileText }
-    ],
-    features: [
-      {
-        icon: BarChart3,
-        title: "Analytics & Reports",
-        desc: "Comprehensive insights into student performance and placement trends"
-      },
-      {
-        icon: UserCheck,
-        title: "Student Monitoring",
-        desc: "Track individual progress and provide targeted guidance"
-      },
-      {
-        icon: Building2,
-        title: "Industry Relations",
-        desc: "Manage partnerships and coordinate recruitment drives"
-      }
-    ]
-  },
-  placement_officer: {
-    title: "Placement Coordination Hub",
-    subtitle: "Connect Talent with Opportunities",
-    description:
-      "Facilitate seamless recruitment processes, manage company relationships, and maximize placement success rates.",
-    buttonText: "Manage Placements",
-    gradient: "bg-white",
-    bgGradient: "bg-white",
-    cardGradient: "bg-white",
-    image:
-      "https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=300&fit=crop",
-    stats: [
-      { number: "2,840", label: "Successful Placements", icon: Award },
-      { number: "387", label: "Recruiting Companies", icon: Building2 },
-      { number: "156", label: "Active Drives", icon: Calendar },
-      { number: "92%", label: "Success Rate", icon: TrendingUp }
-    ],
-    features: [
-      {
-        icon: Calendar,
-        title: "Drive Management",
-        desc: "Schedule and coordinate recruitment drives efficiently"
-      },
-      {
-        icon: Users,
-        title: "Candidate Screening",
-        desc: "Match the right students with appropriate opportunities"
-      },
-      {
-        icon: BarChart3,
-        title: "Performance Tracking",
-        desc: "Monitor placement metrics and optimize processes"
-      }
-    ]
-  }
-};
+  const handleWhyChooseUs = () => navigate('/whychooseus');
+
+  const roleConfigs = {
+    student: {
+      title: "Launch Your Career Journey",
+      subtitle: "Access 7000+ Premium Opportunities",
+      description:
+        "Connect with top companies, build your profile, and kickstart your professional journey with personalized job recommendations.",
+      buttonText: "Explore Opportunities",
+      gradient: "from-blue-600 to-indigo-700",
+      bgGradient: "bg-gradient-to-br from-blue-50 to-indigo-50",
+      cardGradient: "bg-white",
+      image:
+        "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=300&fit=crop",
+      stats: [
+        { number: "1,75,324", label: "Active Job Listings", icon: Briefcase },
+        { number: "97,354", label: "Partner Companies", icon: Building2 },
+        { number: "38,47,154", label: "Student Profiles", icon: Users },
+        { number: "7,532", label: "Monthly Placements", icon: TrendingUp }
+      ],
+      features: [
+        {
+          icon: Target,
+          title: "Personalized Matching",
+          desc: "AI-powered job recommendations based on your skills and interests"
+        },
+        {
+          icon: Award,
+          title: "Skill Assessment",
+          desc: "Comprehensive evaluation tools to showcase your abilities"
+        },
+        {
+          icon: Calendar,
+          title: "Interview Scheduling",
+          desc: "Seamless coordination with recruiters and companies"
+        }
+      ]
+    },
+    hod: {
+      title: "Department Excellence Dashboard",
+      subtitle: "Streamline Academic & Placement Operations",
+      description:
+        "Manage student progress, track placement statistics, and coordinate with industry partners for optimal outcomes.",
+      buttonText: "Access Dashboard",
+      gradient: "from-emerald-600 to-teal-700",
+      bgGradient: "bg-gradient-to-br from-emerald-50 to-teal-50",
+      cardGradient: "bg-white",
+      image:
+        "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=300&fit=crop",
+      stats: [
+        { number: "89%", label: "Department Placement Rate", icon: TrendingUp },
+        { number: "1,240", label: "Students Managed", icon: Users },
+        { number: "156", label: "Industry Partners", icon: Building2 },
+        { number: "45", label: "Active Programs", icon: FileText }
+      ],
+      features: [
+        {
+          icon: BarChart3,
+          title: "Analytics & Reports",
+          desc: "Comprehensive insights into student performance and placement trends"
+        },
+        {
+          icon: UserCheck,
+          title: "Student Monitoring",
+          desc: "Track individual progress and provide targeted guidance"
+        },
+        {
+          icon: Building2,
+          title: "Industry Relations",
+          desc: "Manage partnerships and coordinate recruitment drives"
+        }
+      ]
+    },
+    placement_officer: {
+      title: "Placement Coordination Hub",
+      subtitle: "Connect Talent with Opportunities",
+      description:
+        "Facilitate seamless recruitment processes, manage company relationships, and maximize placement success rates.",
+      buttonText: "Manage Placements",
+      gradient: "from-purple-600 to-violet-700",
+      bgGradient: "bg-gradient-to-br from-purple-50 to-violet-50",
+      cardGradient: "bg-white",
+      image:
+        "https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=300&fit=crop",
+      stats: [
+        { number: "2,840", label: "Successful Placements", icon: Award },
+        { number: "387", label: "Recruiting Companies", icon: Building2 },
+        { number: "156", label: "Active Drives", icon: Calendar },
+        { number: "92%", label: "Success Rate", icon: TrendingUp }
+      ],
+      features: [
+        {
+          icon: Calendar,
+          title: "Drive Management",
+          desc: "Schedule and coordinate recruitment drives efficiently"
+        },
+        {
+          icon: Users,
+          title: "Candidate Screening",
+          desc: "Match the right students with appropriate opportunities"
+        },
+        {
+          icon: BarChart3,
+          title: "Performance Tracking",
+          desc: "Monitor placement metrics and optimize processes"
+        }
+      ]
+    }
+  };
 
   const currentRole = roleConfigs[userRole];
 
@@ -236,13 +238,13 @@ const Dashboard = () => {
             return (
               <div
                 key={index}
-                className={`${currentRole.cardGradient} p-6 rounded-2xl shadow-lg hover:shadow-xl transition duration-500 border border-white/50`}
+                className={`${currentRole.cardGradient} p-6 rounded-2xl shadow-lg hover:shadow-xl transition duration-500 border border-gray-100`}
               >
                 <div className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r ${currentRole.gradient} rounded-xl mb-4`}>
                   <Icon className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{stat.number}</h3>
-                <p className="text-gray-700">{stat.label}</p>
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">{stat.number}</h3>
+                <p className="text-gray-600">{stat.label}</p>
               </div>
             );
           })}
@@ -253,10 +255,10 @@ const Dashboard = () => {
       <div className={`py-16 px-6 ${currentRole.bgGradient}`}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
               Designed for {userRole.replace("_", " ")} Success
             </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Everything you need to excel in your role, powered by cutting-edge technology
             </p>
           </div>
@@ -266,14 +268,14 @@ const Dashboard = () => {
               return (
                 <div
                   key={index}
-                  className={`group ${currentRole.cardGradient} p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-white/50`}
+                  className={`group ${currentRole.cardGradient} p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-gray-100`}
                 >
                   <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${currentRole.gradient} rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300`}>
                     <Icon className="h-8 w-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">{feature.title}</h3>
-                  <p className="text-gray-700 leading-relaxed">{feature.desc}</p>
-                  <div className="mt-6 flex items-center text-sm font-medium text-gray-600 group-hover:text-gray-800">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">{feature.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{feature.desc}</p>
+                  <div className="mt-6 flex items-center text-sm font-medium text-gray-500 group-hover:text-gray-700">
                     Learn more <ChevronRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
@@ -289,13 +291,13 @@ const Dashboard = () => {
           {/* About Us Button */}
           <button 
             onClick={handleAboutUs}
-            className={`group flex flex-col items-center justify-center p-6 ${currentRole.cardGradient} rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-white/50`}
+            className={`group flex flex-col items-center justify-center p-6 ${currentRole.cardGradient} rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100`}
           >
-            <div className="w-14 h-14 bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-500 rounded-full flex items-center justify-center mb-3 group-hover:rotate-6 transition-transform">
+            <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mb-3 group-hover:rotate-6 transition-transform">
               <Info className="h-6 w-6 text-white" />
             </div>
             <h3 className="text-lg font-bold text-gray-800 mb-1">About Us</h3>
-            <p className="text-sm text-gray-700 text-center">Learn about our platform</p>
+            <p className="text-sm text-gray-600 text-center">Learn about our platform</p>
             <div className="mt-3 text-blue-600 flex items-center text-xs group-hover:text-blue-800 transition-colors">
               Explore <ChevronRight className="h-3 w-3 ml-1 group-hover:translate-x-1 transition-transform" />
             </div>
@@ -304,13 +306,13 @@ const Dashboard = () => {
           {/* Contact Us Button */}
           <button 
             onClick={handleContactUs}
-            className={`group flex flex-col items-center justify-center p-6 ${currentRole.cardGradient} rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-white/50`}
+            className={`group flex flex-col items-center justify-center p-6 ${currentRole.cardGradient} rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100`}
           >
-            <div className="w-14 h-14 bg-gradient-to-r from-green-500 via-teal-500 to-cyan-500 rounded-full flex items-center justify-center mb-3 group-hover:rotate-6 transition-transform">
+            <div className="w-14 h-14 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center mb-3 group-hover:rotate-6 transition-transform">
               <Mail className="h-6 w-6 text-white" />
             </div>
             <h3 className="text-lg font-bold text-gray-800 mb-1">Contact Us</h3>
-            <p className="text-sm text-gray-700 text-center">Get in touch with us</p>
+            <p className="text-sm text-gray-600 text-center">Get in touch with us</p>
             <div className="mt-3 text-green-600 flex items-center text-xs group-hover:text-green-800 transition-colors">
               Reach out <ChevronRight className="h-3 w-3 ml-1 group-hover:translate-x-1 transition-transform" />
             </div>
@@ -319,14 +321,14 @@ const Dashboard = () => {
           {/* Our Mission Button */}
           <button 
             onClick={handleOurMission}
-            className={`group flex flex-col items-center justify-center p-6 ${currentRole.cardGradient} rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-white/50`}
+            className={`group flex flex-col items-center justify-center p-6 ${currentRole.cardGradient} rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100`}
           >
-            <div className="w-14 h-14 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 rounded-full flex items-center justify-center mb-3 group-hover:rotate-6 transition-transform">
+            <div className="w-14 h-14 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center mb-3 group-hover:rotate-6 transition-transform">
               <TargetIcon className="h-6 w-6 text-white" />
             </div>
             <h3 className="text-lg font-bold text-gray-800 mb-1">Our Mission</h3>
-            <p className="text-sm text-gray-700 text-center">Our core purpose</p>
-            <div className="mt-3 text-orange-600 flex items-center text-xs group-hover:text-orange-800 transition-colors">
+            <p className="text-sm text-gray-600 text-center">Our core purpose</p>
+            <div className="mt-3 text-red-600 flex items-center text-xs group-hover:text-red-800 transition-colors">
               Learn more <ChevronRight className="h-3 w-3 ml-1 group-hover:translate-x-1 transition-transform" />
             </div>
           </button>
@@ -334,14 +336,14 @@ const Dashboard = () => {
           {/* Our Vision Button */}
           <button 
             onClick={handleOurVision}
-            className={`group flex flex-col items-center justify-center p-6 ${currentRole.cardGradient} rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-white/50`}
+            className={`group flex flex-col items-center justify-center p-6 ${currentRole.cardGradient} rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100`}
           >
-            <div className="w-14 h-14 bg-gradient-to-r from-yellow-500 via-amber-500 to-orange-500 rounded-full flex items-center justify-center mb-3 group-hover:rotate-6 transition-transform">
+            <div className="w-14 h-14 bg-gradient-to-r from-amber-500 to-amber-600 rounded-full flex items-center justify-center mb-3 group-hover:rotate-6 transition-transform">
               <Eye className="h-6 w-6 text-white" />
             </div>
             <h3 className="text-lg font-bold text-gray-800 mb-1">Our Vision</h3>
-            <p className="text-sm text-gray-700 text-center">Our future aspirations</p>
-            <div className="mt-3 text-yellow-600 flex items-center text-xs group-hover:text-yellow-800 transition-colors">
+            <p className="text-sm text-gray-600 text-center">Our future aspirations</p>
+            <div className="mt-3 text-amber-600 flex items-center text-xs group-hover:text-amber-800 transition-colors">
               Discover <ChevronRight className="h-3 w-3 ml-1 group-hover:translate-x-1 transition-transform" />
             </div>
           </button>
@@ -349,22 +351,19 @@ const Dashboard = () => {
           {/* Why Choose Us Button */}
           <button 
             onClick={handleWhyChooseUs}
-            className={`group flex flex-col items-center justify-center p-6 ${currentRole.cardGradient} rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-white/50`}
+            className={`group flex flex-col items-center justify-center p-6 ${currentRole.cardGradient} rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100`}
           >
-            <div className="w-14 h-14 bg-gradient-to-r from-purple-500 via-pink-500 to-rose-500 rounded-full flex items-center justify-center mb-3 group-hover:rotate-6 transition-transform">
+            <div className="w-14 h-14 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center mb-3 group-hover:rotate-6 transition-transform">
               <Star className="h-6 w-6 text-white" />
             </div>
             <h3 className="text-lg font-bold text-gray-800 mb-1">Why Choose Us</h3>
-            <p className="text-sm text-gray-700 text-center">What makes us special</p>
+            <p className="text-sm text-gray-600 text-center">What makes us special</p>
             <div className="mt-3 text-purple-600 flex items-center text-xs group-hover:text-purple-800 transition-colors">
               See benefits <ChevronRight className="h-3 w-3 ml-1 group-hover:translate-x-1 transition-transform" />
             </div>
           </button>
         </div>
       </div>
-
-      {/* Footer */}
-      
     </div>
   );
 };

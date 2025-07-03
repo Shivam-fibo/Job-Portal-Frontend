@@ -34,9 +34,9 @@ const Login = ({ onToggleMode }) => {
     student: {
       title: "Welcome Back Student",
       subtitle: "Access your personalized career dashboard and opportunities",
-      topColor: "#3B82F6",
-      middleColor: "#fffaff",
-      bottomColor: "#8e8f8d",
+      topColor: "bg-gradient-to-b from-blue-600 to-blue-700",
+      middleColor: "bg-white",
+      bottomColor: "bg-blue-50",
       image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=800&fit=crop",
       icon: GraduationCap,
       features: [
@@ -48,9 +48,9 @@ const Login = ({ onToggleMode }) => {
     hod: {
       title: "Department Dashboard",
       subtitle: "Manage your department's placement activities",
-      topColor: "#311C5A ",
-      middleColor: "#f7f8fa",
-      bottomColor: "#FEFFFE",
+      topColor: "bg-gradient-to-b from-emerald-600 to-emerald-700",
+      middleColor: "bg-white",
+      bottomColor: "bg-emerald-50",
       image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=800&fit=crop",
       icon: Building2,
       features: [
@@ -62,9 +62,9 @@ const Login = ({ onToggleMode }) => {
     placement_officer: {
       title: "Placement Portal",
       subtitle: "Connect students with top recruiters",
-      topColor: "#164BA1",
-      middleColor: "#ADB4BF",
-      bottomColor: "#F0F4FA",
+      topColor: "bg-gradient-to-b from-violet-600 to-violet-700",
+      middleColor: "bg-white",
+      bottomColor: "bg-violet-50",
       image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=800&fit=crop",
       icon: Users,
       features: [
@@ -117,22 +117,22 @@ const Login = ({ onToggleMode }) => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4" style={{ backgroundColor: currentRole.bottomColor }}>
-      <div className="w-full rounded-3xl shadow-2xl overflow-hidden" style={{ backgroundColor: currentRole.middleColor }}>
+    <div className={`min-h-screen flex items-center justify-center p-4 ${currentRole.bottomColor}`}>
+      <div className={`w-full rounded-3xl shadow-2xl overflow-hidden ${currentRole.middleColor}`}>
         <div className="grid lg:grid-cols-2 min-h-[600px]">
           {/* Left Side */}
-          <div className="p-8 lg:p-12 flex flex-col justify-center text-white" style={{ backgroundColor: currentRole.topColor }}>
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-opacity-20 rounded-2xl mb-6">
-              <RoleIcon className="h-8 w-8 text-black" />
+          <div className={`p-8 lg:p-12 flex flex-col justify-center text-white ${currentRole.topColor}`}>
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-2xl mb-6">
+              <RoleIcon className="h-8 w-8 text-white" />
             </div>
             <h1 className="text-3xl lg:text-4xl font-bold mb-4">{currentRole.title}</h1>
-            <p className="text-lg mb-6">{currentRole.subtitle}</p>
+            <p className="text-lg mb-6 text-white/90">{currentRole.subtitle}</p>
 
             <div className="space-y-4">
               {currentRole.features.map((feature, idx) => (
                 <div key={idx} className="flex items-center gap-3">
                   <CheckCircle className="h-5 w-5 text-white" />
-                  <span>{feature}</span>
+                  <span className="text-white/90">{feature}</span>
                 </div>
               ))}
             </div>
@@ -141,7 +141,7 @@ const Login = ({ onToggleMode }) => {
               <img
                 src={currentRole.image}
                 alt={`${formData.role} illustration`}
-                className="w-full max-w-xs h-48 object-cover rounded-2xl shadow-lg"
+                className="w-full max-w-xs h-48 object-cover rounded-2xl shadow-lg border-4 border-white/20"
               />
             </div>
           </div>
@@ -151,13 +151,13 @@ const Login = ({ onToggleMode }) => {
             <div className="w-full max-w-md mx-auto">
               <div className="text-center mb-8">
                 <div className="flex items-center justify-center gap-2 mb-2">
-                  <Sparkles className="h-6 w-6 text-black" />
-                  <span className="text-sm font-semibold uppercase tracking-wider text-black">
+                  <Sparkles className="h-6 w-6 text-gray-700" />
+                  <span className="text-sm font-semibold uppercase tracking-wider text-gray-700">
                     {formData.role.replace('_', ' ')} Login
                   </span>
                 </div>
-                <h2 className="text-3xl font-bold text-black mb-1">Welcome Back</h2>
-                <p className="text-gray-700">Sign in to continue your journey</p>
+                <h2 className="text-3xl font-bold text-gray-800 mb-1">Welcome Back</h2>
+                <p className="text-gray-600">Sign in to continue your journey</p>
               </div>
 
               {error && (
@@ -170,7 +170,7 @@ const Login = ({ onToggleMode }) => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Email */}
                 <div>
-                  <label className="block text-sm font-semibold text-black mb-2">Email Address</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-4 flex items-center">
                       <Mail className="h-5 w-5 text-gray-500" />
@@ -181,7 +181,7 @@ const Login = ({ onToggleMode }) => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full pl-12 pr-4 py-3 border rounded-xl bg-gray-100 focus:ring-2 ring-black outline-none"
+                      className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
                       placeholder="Enter your email"
                     />
                   </div>
@@ -189,7 +189,7 @@ const Login = ({ onToggleMode }) => {
 
                 {/* Role */}
                 <div>
-                  <label className="block text-sm font-semibold text-black mb-2">Select Your Role</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Select Your Role</label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-4 flex items-center">
                       <User className="h-5 w-5 text-gray-500" />
@@ -198,7 +198,7 @@ const Login = ({ onToggleMode }) => {
                       name="role"
                       value={formData.role}
                       onChange={handleChange}
-                      className="w-full pl-12 pr-4 py-3 border rounded-xl bg-gray-100 focus:ring-2 ring-black outline-none appearance-none"
+                      className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none appearance-none transition-all"
                     >
                       <option value="student">Student</option>
                       <option value="hod">Head of Department</option>
@@ -209,7 +209,7 @@ const Login = ({ onToggleMode }) => {
 
                 {/* Password */}
                 <div>
-                  <label className="block text-sm font-semibold text-black mb-2">Password</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Password</label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-4 flex items-center">
                       <Lock className="h-5 w-5 text-gray-500" />
@@ -220,7 +220,7 @@ const Login = ({ onToggleMode }) => {
                       value={formData.password}
                       onChange={handleChange}
                       required
-                      className="w-full pl-12 pr-14 py-3 border rounded-xl bg-gray-100 focus:ring-2 ring-black outline-none"
+                      className="w-full pl-12 pr-14 py-3 border border-gray-300 rounded-xl bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
                       placeholder="Enter your password"
                     />
                     <button
@@ -238,7 +238,7 @@ const Login = ({ onToggleMode }) => {
                   <button
                     type="button"
                     onClick={() => setShowForgotModal(true)}
-                    className="text-sm font-medium text-black hover:underline"
+                    className="text-sm font-medium text-gray-600 hover:text-gray-800 hover:underline transition-colors"
                   >
                     Forgot Password?
                   </button>
@@ -248,7 +248,11 @@ const Login = ({ onToggleMode }) => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-black text-white font-semibold py-3 px-6 rounded-xl hover:opacity-90 transition-all duration-300 disabled:opacity-50"
+                  className={`w-full text-white font-semibold py-3 px-6 rounded-xl hover:opacity-90 transition-all duration-300 disabled:opacity-50 ${
+                    formData.role === 'student' ? 'bg-blue-600 hover:bg-blue-700' :
+                    formData.role === 'hod' ? 'bg-emerald-600 hover:bg-emerald-700' :
+                    'bg-violet-600 hover:bg-violet-700'
+                  }`}
                 >
                   {loading ? 'Signing In...' : 'Sign In'}
                 </button>
@@ -256,13 +260,13 @@ const Login = ({ onToggleMode }) => {
 
               {/* Toggle to Register */}
               <div className="mt-6 text-center">
-                <p className="text-black">
+                <p className="text-gray-600">
                   Don't have an account?{' '}
                   <button
                     onClick={onToggleMode}
-                    className="font-semibold underline"
+                    className="font-semibold text-gray-800 hover:underline"
                   >
-                    Log in
+                    Register
                   </button>
                 </p>
               </div>

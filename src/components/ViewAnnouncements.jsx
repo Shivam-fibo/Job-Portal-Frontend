@@ -1,12 +1,25 @@
-// App.js
 import React, { useState, useEffect } from 'react';
 
-// Tailwind config with your color palette
-const colors = {
-  skuBlue: '#3A82F7',
-  beige: '#FEFBFF',
-  white: '#FEFBFF',
+// Role-based color configurations
+const roleConfigs = {
+  hod: {
+    topColor: "bg-gradient-to-b from-emerald-600 to-emerald-700",
+    middleColor: "bg-white",
+    bottomColor: "bg-emerald-50",
+    textColor: "text-emerald-700",
+    buttonColor: "bg-emerald-600 hover:bg-emerald-700"
+  },
+  placement_officer: {
+    topColor: "bg-gradient-to-b from-violet-600 to-violet-700",
+    middleColor: "bg-white",
+    bottomColor: "bg-violet-50",
+    textColor: "text-violet-700",
+    buttonColor: "bg-violet-600 hover:bg-violet-700"
+  }
 };
+
+// Default to placement_officer colors or you can set this based on user role
+const currentRole = roleConfigs['placement_officer']; // Change to 'hod' for HOD colors
 
 function App() {
   const [announcements, setAnnouncements] = useState([]);
@@ -35,23 +48,17 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* Header with sku blue background */}
-      <header 
-        className="py-4 px-6 shadow-md text-center"
-        style={{ backgroundColor: colors.skuBlue }}
-      >
-        <h1 className="text-2xl font-bold text-gray-800 ">Announcements</h1>
+    <div className={`min-h-screen flex flex-col ${currentRole.bottomColor}`}>
+      {/* Header with role-based gradient background */}
+      <header className={`py-4 px-6 shadow-md text-center ${currentRole.topColor}`}>
+        <h1 className="text-2xl font-bold text-white">Announcements</h1>
       </header>
 
-      {/* Main content with beige background */}
-      <main 
-        className="flex-1 p-6"
-        style={{ backgroundColor: colors.beige }}
-      >
+      {/* Main content with role-based background */}
+      <main className={`flex-1 p-6 ${currentRole.middleColor}`}>
         {loading ? (
           <div className="text-center py-8">
-            <p>Loading announcements...</p>
+            <p className={currentRole.textColor}>Loading announcements...</p>
           </div>
         ) : error ? (
           <div className="text-center py-8 text-red-500">
@@ -59,29 +66,27 @@ function App() {
           </div>
         ) : announcements.length === 0 ? (
           <div className="text-center py-8">
-            <p>No announcements available</p>
+            <p className={currentRole.textColor}>No announcements available</p>
           </div>
         ) : (
           <div className="max-w-3xl mx-auto space-y-6">
-         {[...announcements].reverse().map((announcement) => (
-  <div 
-    key={announcement._id} 
-    className="bg-white p-6 rounded-lg shadow-md"
-  >
-    <h2 className="text-xl font-semibold text-gray-800 mb-2">
-      {announcement.title}
-    </h2>
-    <p className="text-gray-600 mb-4">{announcement.description}</p>
-    <div className="text-sm text-gray-500">
-      Posted on: {new Date(announcement.createdAt).toLocaleDateString()}
-    </div>
-  </div>
-))}
-
+            {[...announcements].reverse().map((announcement) => (
+              <div 
+                key={announcement._id} 
+                className="bg-white p-6 rounded-lg shadow-md"
+              >
+                <h2 className={`text-xl font-semibold mb-2 ${currentRole.textColor}`}>
+                  {announcement.title}
+                </h2>
+                <p className="text-gray-600 mb-4">{announcement.description}</p>
+                <div className="text-sm text-gray-500">
+                  Posted on: {new Date(announcement.createdAt).toLocaleDateString()}
+                </div>
+              </div>
+            ))}
           </div>
         )}
       </main>
-
     </div>
   );
 }

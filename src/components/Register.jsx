@@ -18,9 +18,8 @@ const Register = ({ onToggleMode }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [otp, setOtp] = useState('');
-const [isOTPSent, setIsOTPSent] = useState(false);
-const [isVerified, setIsVerified] = useState(false);
-
+  const [isOTPSent, setIsOTPSent] = useState(false);
+  const [isVerified, setIsVerified] = useState(false);
 
   const navigate = useNavigate();
   const { login } = useAuth();
@@ -29,81 +28,79 @@ const [isVerified, setIsVerified] = useState(false);
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setError('');
   };
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  setLoading(true);
-  setError('');
 
-  if (formData.password !== formData.confirmPassword) {
-    setError('Passwords do not match');
-    setLoading(false);
-    return;
-  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
 
-  if (formData.password.length < 6) {
-    setError('Password must be at least 6 characters long');
-    setLoading(false);
-    return;
-  }
-
-  if (formData.role === 'student' && !formData.email.endsWith('@edu.in')) {
-    setError('Student email must end with @edu.in');
-    setLoading(false);
-    return;
-  }
-
-  try {
-    const res = await fetch('http://localhost:5000/api/auth/register', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-       credentials: 'include',
-      body: JSON.stringify({
-        email: formData.email,
-        password: formData.password,
-        role: formData.role
-      }),
-    });
-
-    const data = await res.json();
-    if (res.ok) {
-      setIsOTPSent(true); // show OTP input
-    } else {
-      setError(data.message || 'Registration failed');
+    if (formData.password !== formData.confirmPassword) {
+      setError('Passwords do not match');
+      setLoading(false);
+      return;
     }
-  } catch {
-    setError('Network error. Please try again.');
-  } finally {
-    setLoading(false);
-  }
-};
 
-
-const handleVerifyOTP = async () => {
-  setLoading(true);
-  setError('');
-  try {
-    const res = await fetch('http://localhost:5000/api/auth/verify-otp', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-       credentials: 'include',
-      body: JSON.stringify({ email: formData.email, otp }),
-    });
-
-    const data = await res.json();
-    if (res.ok) {
-      login( data.user); 
-      navigate('/dashboard');
-    } else {
-      setError(data.message || 'Invalid OTP');
+    if (formData.password.length < 6) {
+      setError('Password must be at least 6 characters long');
+      setLoading(false);
+      return;
     }
-  } catch {
-    setError('Network error. Please try again.');
-  } finally {
-    setLoading(false);
-  }
-};
 
+    if (formData.role === 'student' && !formData.email.endsWith('@edu.in')) {
+      setError('Student email must end with @edu.in');
+      setLoading(false);
+      return;
+    }
 
+    try {
+      const res = await fetch('http://localhost:5000/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password,
+          role: formData.role
+        }),
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        setIsOTPSent(true); // show OTP input
+      } else {
+        setError(data.message || 'Registration failed');
+      }
+    } catch {
+      setError('Network error. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleVerifyOTP = async () => {
+    setLoading(true);
+    setError('');
+    try {
+      const res = await fetch('http://localhost:5000/api/auth/verify-otp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ email: formData.email, otp }),
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        login(data.user); 
+        navigate('/dashboard');
+      } else {
+        setError(data.message || 'Invalid OTP');
+      }
+    } catch {
+      setError('Network error. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const roleConfigs = {
     student: {
@@ -116,11 +113,9 @@ const handleVerifyOTP = async () => {
         "Personalized career matching",
         "Skill assessment tools"
       ],
-      colors: {
-        top: "#3B82F6",
-        middle: "#fffaff",
-        bottom: "#8e8f8d"
-      }
+      gradient: "bg-gradient-to-b from-blue-600 to-blue-700",
+      bgColor: "bg-blue-50",
+      cardColor: "bg-white"
     },
     hod: {
       title: "Department Leadership",
@@ -132,11 +127,9 @@ const handleVerifyOTP = async () => {
         "Placement analytics dashboard",
         "Industry partnership management"
       ],
-      colors: {
-        top: "#311C5A",
-        middle: "#f7f8fa",
-        bottom: "#FEFFFE"
-      }
+      gradient: "bg-gradient-to-b from-emerald-600 to-emerald-700",
+      bgColor: "bg-emerald-50",
+      cardColor: "bg-white"
     },
     placement_officer: {
       title: "Placement Excellence",
@@ -148,11 +141,9 @@ const handleVerifyOTP = async () => {
         "Company relationship management",
         "Placement success tracking"
       ],
-      colors: {
-        top: "#164BA1",
-        middle: "#ADB4BF",
-        bottom: "#F0F4FA"
-      }
+      gradient: "bg-gradient-to-b from-violet-600 to-violet-700",
+      bgColor: "bg-violet-50",
+      cardColor: "bg-white"
     }
   };
 
@@ -160,11 +151,11 @@ const handleVerifyOTP = async () => {
   const RoleIcon = currentRole.icon;
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4" style={{ backgroundColor: currentRole.colors.bottom }}>
-      <div className="w-full rounded-3xl shadow-2xl overflow-hidden" style={{ backgroundColor: currentRole.colors.middle }}>
+    <div className={`min-h-screen flex items-center justify-center p-4 ${currentRole.bgColor}`}>
+      <div className={`w-full rounded-3xl shadow-2xl overflow-hidden ${currentRole.cardColor}`}>
         <div className="grid lg:grid-cols-2 min-h-[600px]">
           {/* Left Side */}
-          <div className="p-8 lg:p-12 flex flex-col justify-center text-white" style={{ backgroundColor: currentRole.colors.top }}>
+          <div className={`p-8 lg:p-12 flex flex-col justify-center text-white ${currentRole.gradient}`}>
             <div className="relative z-10">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-2xl mb-6">
                 <RoleIcon className="h-8 w-8 text-white" />
@@ -183,7 +174,7 @@ const handleVerifyOTP = async () => {
                 <img
                   src={currentRole.image}
                   alt={`${formData.role} illustration`}
-                  className="w-full max-w-xs h-48 object-cover rounded-2xl shadow-2xl mx-auto lg:mx-0"
+                  className="w-full max-w-xs h-48 object-cover rounded-2xl shadow-2xl mx-auto lg:mx-0 border-4 border-white/20"
                 />
               </div>
             </div>
@@ -194,12 +185,12 @@ const handleVerifyOTP = async () => {
             <div className="w-full max-w-md mx-auto">
               <div className="text-center mb-8">
                 <div className="flex items-center justify-center gap-2 mb-4">
-                  <Sparkles className="h-6 w-6 text-gray-700" />
-                  <span className="text-sm font-medium uppercase tracking-wider text-gray-700">
+                  <Sparkles className="h-6 w-6 text-gray-600" />
+                  <span className="text-sm font-medium uppercase tracking-wider text-gray-600">
                     {formData.role.replace('_', ' ')} Registration
                   </span>
                 </div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-2">Create Account</h2>
+                <h2 className="text-3xl font-bold text-gray-800 mb-2">Create Account</h2>
                 <p className="text-gray-600">Sign up for a new account</p>
               </div>
 
@@ -225,7 +216,7 @@ const handleVerifyOTP = async () => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl bg-gray-50 focus:bg-white outline-none"
+                        className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
                         placeholder="Enter your email"
                       />
                     </div>
@@ -242,7 +233,7 @@ const handleVerifyOTP = async () => {
                         name="role"
                         value={formData.role}
                         onChange={handleChange}
-                        className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl bg-gray-50 focus:bg-white outline-none"
+                        className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none appearance-none transition-all"
                       >
                         <option value="student">Student</option>
                         <option value="hod">Head of Department</option>
@@ -264,7 +255,7 @@ const handleVerifyOTP = async () => {
                         value={formData.password}
                         onChange={handleChange}
                         required
-                        className="w-full pl-12 pr-14 py-4 border-2 border-gray-200 rounded-xl bg-gray-50 focus:bg-white outline-none"
+                        className="w-full pl-12 pr-14 py-3 border border-gray-300 rounded-xl bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
                         placeholder="Enter your password"
                       />
                       <button
@@ -290,7 +281,7 @@ const handleVerifyOTP = async () => {
                         value={formData.confirmPassword}
                         onChange={handleChange}
                         required
-                        className="w-full pl-12 pr-14 py-4 border-2 border-gray-200 rounded-xl bg-gray-50 focus:bg-white outline-none"
+                        className="w-full pl-12 pr-14 py-3 border border-gray-300 rounded-xl bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
                         placeholder="Confirm your password"
                       />
                       <button
@@ -307,8 +298,11 @@ const handleVerifyOTP = async () => {
                   <button
                     type="submit"
                     disabled={loading}
-                    style={{ backgroundColor: currentRole.colors.top }}
-                    className="w-full text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:opacity-90 disabled:opacity-50"
+                    className={`w-full text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:opacity-90 disabled:opacity-50 ${
+                      formData.role === 'student' ? 'bg-blue-600 hover:bg-blue-700' :
+                      formData.role === 'hod' ? 'bg-emerald-600 hover:bg-emerald-700' :
+                      'bg-violet-600 hover:bg-violet-700'
+                    }`}
                   >
                     {loading ? (
                       <div className="flex items-center justify-center gap-3">
@@ -323,34 +317,39 @@ const handleVerifyOTP = async () => {
               </form>
 
               {isOTPSent && (
-  <div className="mt-6 space-y-4">
-    <label className="block text-sm font-semibold text-gray-700">Enter OTP sent to your email</label>
-    <input
-      type="text"
-      value={otp}
-      onChange={(e) => setOtp(e.target.value)}
-      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl bg-gray-50 focus:bg-white outline-none"
-      placeholder="Enter OTP"
-    />
-    <button
-      type="button"
-      onClick={handleVerifyOTP}
-      style={{ backgroundColor: currentRole.colors.top }}
-      className="w-full text-white font-semibold py-3 rounded-xl shadow-md hover:opacity-90"
-    >
-      {loading ? 'Verifying OTP...' : 'Verify OTP & Continue'}
-    </button>
-  </div>
-)}
-
+                <div className="mt-6 space-y-4">
+                  <label className="block text-sm font-semibold text-gray-700">Enter OTP sent to your email</label>
+                  <input
+                    type="text"
+                    value={otp}
+                    onChange={(e) => setOtp(e.target.value)}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                    placeholder="Enter OTP"
+                  />
+                  <button
+                    type="button"
+                    onClick={handleVerifyOTP}
+                    className={`w-full text-white font-semibold py-3 rounded-xl shadow-md hover:opacity-90 transition-all ${
+                      formData.role === 'student' ? 'bg-blue-600 hover:bg-blue-700' :
+                      formData.role === 'hod' ? 'bg-emerald-600 hover:bg-emerald-700' :
+                      'bg-violet-600 hover:bg-violet-700'
+                    }`}
+                  >
+                    {loading ? 'Verifying OTP...' : 'Verify OTP & Continue'}
+                  </button>
+                </div>
+              )}
 
               <div className="mt-8 text-center">
                 <p className="text-gray-600">
                   Already have an account?{' '}
                   <button
                     onClick={onToggleMode}
-                    style={{ color: currentRole.colors.top }}
-                    className="font-semibold hover:opacity-80"
+                    className={`font-semibold hover:underline ${
+                      formData.role === 'student' ? 'text-blue-600 hover:text-blue-700' :
+                      formData.role === 'hod' ? 'text-emerald-600 hover:text-emerald-700' :
+                      'text-violet-600 hover:text-violet-700'
+                    }`}
                   >
                     Sign in
                   </button>
