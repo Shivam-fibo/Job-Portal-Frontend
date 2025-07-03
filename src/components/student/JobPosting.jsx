@@ -32,7 +32,7 @@ const StudentJobBoard = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/job/getAllJob', {
+        const response = await fetch('https://job-portal-backend-ivory.vercel.app/api/job/getAllJob', {
           credentials: 'include',
         });
         const data = await response.json();
@@ -87,7 +87,7 @@ const StudentJobBoard = () => {
     setATSLoading(true);
 
     try {
-      const applyToJob = await fetch("http://localhost:5000/api/application/apply", {
+      const applyToJob = await fetch("https://job-portal-backend-ivory.vercel.app/api/application/apply", {
         method: "POST",
         body: JSON.stringify({ jobId: job._id, studentId: user?.id }),
         headers: {

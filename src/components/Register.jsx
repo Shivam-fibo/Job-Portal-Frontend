@@ -53,7 +53,7 @@ const Register = ({ onToggleMode }) => {
     }
 
     try {
-      const res = await fetch('http://localhost:5000/api/auth/register', {
+      const res = await fetch('https://job-portal-backend-ivory.vercel.app/api/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -81,7 +81,7 @@ const Register = ({ onToggleMode }) => {
     setLoading(true);
     setError('');
     try {
-      const res = await fetch('http://localhost:5000/api/auth/verify-otp', {
+      const res = await fetch('https://job-portal-backend-ivory.vercel.app/api/auth/verify-otp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

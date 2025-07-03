@@ -1,10 +1,5 @@
 import { useState, useEffect } from 'react';
 import { User, Briefcase, School, Search, FileText, BarChart2, CheckCircle, ArrowRight, Upload, MousePointer, Send } from 'lucide-react';
-
-
-
-
-import { useAuth } from '../context/AuthContext';
 import {useNavigate} from 'react-router-dom'
 
 const JobPortalLanding = () => {
@@ -16,7 +11,7 @@ const JobPortalLanding = () => {
     students: 0
   });
 
-  // Animate statistics
+  
   useEffect(() => {
     const targetStats = {
       jobs: 7000,

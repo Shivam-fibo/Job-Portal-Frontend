@@ -10,7 +10,7 @@ const CreateAnnouncement = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('http://localhost:5000/api/application/annoucment', {
+      const res = await fetch('https://job-portal-backend-ivory.vercel.app/api/application/annoucment', {
         method: 'POST',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },

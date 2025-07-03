@@ -29,7 +29,7 @@ const ForgotPasswordModal = ({ onClose }) => {
     setMessage('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/auth/forgot-password', {
+      const response = await fetch('https://job-portal-backend-ivory.vercel.app/api/auth/forgot-password', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ const ForgotPasswordModal = ({ onClose }) => {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/auth/reset-password', {
+      const response = await fetch('https://job-portal-backend-ivory.vercel.app/api/auth/reset-password', {
         method: 'POST',
          credentials: 'include',
         headers: {

@@ -45,7 +45,7 @@ const navigate = useNavigate()
     };
 
     try {
-      const response = await fetch('http://localhost:5000/api/job/create/job', {
+      const response = await fetch('https://job-portal-backend-ivory.vercel.app/api/job/create/job', {
         method: 'POST',
          credentials: 'include',
         headers: {

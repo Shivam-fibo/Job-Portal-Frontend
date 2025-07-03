@@ -21,7 +21,7 @@ const Hod = () => {
   useEffect(() => {
     const fetchApplications = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/application/jobApplied', {
+        const res = await fetch('https://job-portal-backend-ivory.vercel.app/api/application/jobApplied', {
           credentials: 'include',
         })
         const data = await res.json()

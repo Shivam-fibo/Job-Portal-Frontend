@@ -31,7 +31,7 @@ const StudentLandingPage = () => {
     
     try {
       const response = await fetch(
-        `http://localhost:5000/api/student/profile/${user.id}`, {
+        `https://job-portal-backend-ivory.vercel.app/api/student/profile/${user.id}`, {
           credentials: 'include',
         });
       const data = await response.json();
@@ -64,7 +64,7 @@ const StudentLandingPage = () => {
       
       try {
         const response = await fetch(
-          `http://localhost:5000/api/application/status/${user.id}`, {
+          `https://job-portal-backend-ivory.vercel.app/api/application/status/${user.id}`, {
             credentials: 'include',
           });
         const data = await response.json();
@@ -105,7 +105,7 @@ const StudentLandingPage = () => {
 
     try {
       const res = await fetch(
-        'http://localhost:5000/api/application/update-status',
+        'https://job-portal-backend-ivory.vercel.app/api/application/update-status',
         {
           method: 'POST',
           credentials: 'include',

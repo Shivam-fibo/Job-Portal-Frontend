@@ -29,7 +29,7 @@ function App() {
   useEffect(() => {
     const fetchAnnouncements = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/application/getAllAnnoucment', {
+        const response = await fetch('https://job-portal-backend-ivory.vercel.app/api/application/getAllAnnoucment', {
           credentials: 'include',
         });
         if (!response.ok) {
