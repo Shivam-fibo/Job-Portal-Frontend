@@ -2,26 +2,26 @@ import React from 'react';
 import { useAuth } from "../context/AuthContext";
 
 const roleColors = {
-  student: {
-    header: '#3A82F7',
-    content: '#FEFBFF',
+   student: {
+    header: '#FFFFFF',
+    content: '#FFFFFF',
     footer: '#FFFFFF',
-    text: '#2C3E50',
-    accent: '#3498db'
+    text: '#1F2937',    
+    accent: '#D1D5DB'   
   },
   hod: {
-    header: '#311C5A',
-    content: '#e2e8f0',
-    footer: '#e2e8f0',
-    text: 'F7F9FB',
-    accent: '#d4a017'
+     header: '#FFFFFF',
+    content: '#FFFFFF',
+    footer: '#FFFFFF',
+    text: '#1F2937',
+    accent: '#D1D5DB'
   },
   placement_officer: {
-    header: '#164BA1',
-    content: '#ADB4BF',
-    footer: '#F0F4FA',
-    text: '#1A2B50',
-    accent: '#2c82c9'
+     header: '#FFFFFF',
+    content: '#FFFFFF',
+    footer: '#FFFFFF',
+    text: '#1F2937',
+    accent: '#D1D5DB'
   }
 };
 
@@ -45,7 +45,7 @@ const Vision = () => {
         </div>
         <div className="relative z-10">
           <div className=" text-center">
-           <h1 className="text-4xl font-bold tracking-wide  text-white ">
+           <h1 className="text-4xl font-bold tracking-wide  text-black">
             PLACEMENT CELL
           </h1>
         </div>

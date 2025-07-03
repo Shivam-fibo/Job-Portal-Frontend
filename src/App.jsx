@@ -26,7 +26,6 @@ import {Toaster} from 'react-hot-toast'
 const AppContent = () => {
   const { user, loading } = useAuth();
 
-  // Show loading spinner while checking authentication
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">

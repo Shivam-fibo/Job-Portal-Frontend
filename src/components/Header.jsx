@@ -5,42 +5,42 @@ const Header = () => {
   const { logout } = useAuth(); // ✅ use logout function
   const user = JSON.parse(sessionStorage.getItem("user") || "{}");
   const role = user?.role || "student";
+const config = {
+  student: {
+    colors: {
+      top: "#FFFFFF",
+    },
+    buttons: {
+      seeAnnouncement: true,
+      addAnnouncement: false,
+      seeStudents: false,
+      logout: true,
+    },
+  },
+  hod: {
+    colors: {
+      top: "#FFFFFF",
+    },
+    buttons: {
+      seeAnnouncement: false,
+      addAnnouncement: true,
+      seeStudents: true,
+      logout: true,
+    },
+  },
+  placement_officer: {
+    colors: {
+      top: "#FFFFFF",
+    },
+    buttons: {
+      seeAnnouncement: true,
+      addAnnouncement: false,
+      seeStudents: true,
+      logout: true,
+    },
+  },
+};
 
-  const config = {
-    student: {
-      colors: {
-        top: "#C8D9E6",
-      },
-      buttons: {
-        seeAnnouncement: true,
-        addAnnouncement: false,
-        seeStudents: false,
-        logout: true,
-      },
-    },
-    hod: {
-      colors: {
-        top: "#F7F9FB",
-      },
-      buttons: {
-        seeAnnouncement: false,
-        addAnnouncement: true,
-        seeStudents: true,
-        logout: true,
-      },
-    },
-    "placement_officer": {
-      colors: {
-        top: "#164BA1",
-      },
-      buttons: {
-        seeAnnouncement: true,
-        addAnnouncement: false,
-        seeStudents: true,
-        logout: true,
-      },
-    },
-  };
 
   const roleConfig = config[role];
   const navigate = useNavigate()

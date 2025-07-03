@@ -18,11 +18,11 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const checkAuth = () => {
       try {
-        const token = sessionStorage.getItem('token');
+  
         const userData = sessionStorage.getItem('user');
         
-        // If both token and user data exist, user is logged in
-        if (token && userData) {
+
+        if ( userData) {
           setUser(JSON.parse(userData));
         }
       } catch (error) {
@@ -37,7 +37,7 @@ export const AuthProvider = ({ children }) => {
     checkAuth();
   }, []);
 
-  const login = (token, userData) => {
+  const login = ( userData) => {
     sessionStorage.setItem('user', JSON.stringify(userData));
     setUser(userData);
   };

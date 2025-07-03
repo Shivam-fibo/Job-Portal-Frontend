@@ -60,17 +60,16 @@ const Dashboard = () => {
   const handleContactUs = () => navigate('/contactus');
   const handleOurMission = () => navigate('/ourmission');
   const handleOurVision = () => navigate('/ourvision');
-  const handleWhyChooseUs = () => navigate('/whychooseus');
-const roleConfigs = {
+  const handleWhyChooseUs = () => navigate('/whychooseus');const roleConfigs = {
   student: {
     title: "Launch Your Career Journey",
     subtitle: "Access 7000+ Premium Opportunities",
     description:
       "Connect with top companies, build your profile, and kickstart your professional journey with personalized job recommendations.",
     buttonText: "Explore Opportunities",
-    gradient: "bg-[#3B82F6]",
-    bgGradient: "bg-[#dae9ff]",
-    cardGradient: "bg-[#F5EFEB]",
+    gradient: "bg-white",
+    bgGradient: "bg-white",
+    cardGradient: "bg-white",
     image:
       "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=300&fit=crop",
     stats: [
@@ -103,9 +102,9 @@ const roleConfigs = {
     description:
       "Manage student progress, track placement statistics, and coordinate with industry partners for optimal outcomes.",
     buttonText: "Access Dashboard",
-    gradient: "bg-[#311C5A]",
-    bgGradient: "bg-gray-300",
-    cardGradient: "bg-[#F7F9FB]",
+    gradient: "bg-white",
+    bgGradient: "bg-white",
+    cardGradient: "bg-white",
     image:
       "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=300&fit=crop",
     stats: [
@@ -138,9 +137,9 @@ const roleConfigs = {
     description:
       "Facilitate seamless recruitment processes, manage company relationships, and maximize placement success rates.",
     buttonText: "Manage Placements",
-    gradient: "from-[#164BA1] to-[#164BA1]",
-    bgGradient: "bg-gradient-to-b from-[#164BA1] via-[#ADB4BF] to-[#F0F4FA]",
-    cardGradient: "bg-[#ADB4BF]",
+    gradient: "bg-white",
+    bgGradient: "bg-white",
+    cardGradient: "bg-white",
     image:
       "https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=300&fit=crop",
     stats: [
@@ -168,6 +167,7 @@ const roleConfigs = {
     ]
   }
 };
+
   const currentRole = roleConfigs[userRole];
 
   return (
